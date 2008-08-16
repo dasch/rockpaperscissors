@@ -4,17 +4,14 @@ class Round < ActiveRecord::Base
 
   DEFEATING_GESTURES = {"rock" => "paper", "paper" => "scissors", "scissors" => "rock"}
 
+  def losers
+    participations.select do |participation|
+      participations.any? {|p| p.gesture == DEFEATING_GESTURES[participation.gesture] }
+    end.collect(&:player)
+  end
+    
   def winner
-    losers = []
-    
-    participations.each do |participation|
-      if participations.any? {|p| p.gesture == DEFEATING_GESTURES[participation.gesture] }
-        losers << participation
-      end
-    end
-    
-    winners = participations - losers
-
-    return winners.first.player if winners.length == 1
+    winners = participants - losers
+    return winners.first if winners.length == 1
   end
 end

@@ -1,7 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 emil:
   name: Emil Sjøntoft
 
 niklas:
   name: Niklas Bastholm Hansen
+
+daniel: 
+  name: Daniel Schierbeck

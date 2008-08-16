@@ -8,3 +8,8 @@ one_niklas:
   player: niklas
   round: one
   gesture: "rock"
+
+one_daniel:
+  player: daniel
+  round: one
+  gesture: "scissors"
