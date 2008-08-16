@@ -13,8 +13,22 @@ class RoundParticipationTest < ActiveSupport::TestCase
     assert_equal "scissors", round_participations(:one_emil).gesture
   end
 
+  def test_must_have_player
+    assert !create_participation(:player => nil).valid?
+  end
+
+  def test_must_have_round
+    assert !create_participation(:round => nil).valid?
+  end
+
   def test_uniqueness
-    p1 = rounds(:one).participations.create(:player => players(:emil), :gesture => "rock")
-    assert !p1.valid?
+    assert !create_participation(:player => players(:emil)).valid?
+  end
+
+  protected
+
+  def create_participation(options = {})
+    defaults = {:round => rounds(:one), :player => players(:anders), :gesture => "rock"}
+    RoundParticipation.new(defaults.update(options))
   end
 end
