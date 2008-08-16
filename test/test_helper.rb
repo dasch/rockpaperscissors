@@ -35,4 +35,7 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def assert_same_collection(expected, actual, message = nil)
+    assert_equal(expected.sort_by(&:id), actual.sort_by(&:id), message)
+  end
 end
