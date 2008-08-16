@@ -21,6 +21,14 @@ class RoundParticipationTest < ActiveSupport::TestCase
     assert !create_participation(:round => nil).valid?
   end
 
+  def test_must_have_gesture
+    assert !create_participation(:gesture => nil).valid?
+  end
+
+  def test_must_have_valid_gesture
+    assert !create_participation(:gesture => "hammer").valid?
+  end
+
   def test_uniqueness
     assert !create_participation(:player => players(:emil)).valid?
   end
