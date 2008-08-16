@@ -8,4 +8,8 @@ class RoundTest < ActiveSupport::TestCase
   def test_participants
     assert_same_collection players(:emil, :niklas), rounds(:one).participants
   end
+
+  def test_winner
+    assert_equal players(:niklas), rounds(:one).winner
+  end
 end
