@@ -12,4 +12,9 @@ class PlayerTest < ActiveSupport::TestCase
     @emil.name = 'Fef'
     assert_equal "Fef", @emil.name
   end
+
+  def test_name_must_be_greater_than_1
+    @emil.name = "X"
+    assert !@emil.valid?
+  end
 end
