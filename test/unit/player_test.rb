@@ -1,8 +1,15 @@
 require 'test_helper'
 
 class PlayerTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def setup
+    @emil = players(:emil)
+  end
+  def test_name
+    assert_equal "Emil Sjøntoft", @emil.name
+  end
+
+  def test_can_change_name
+    @emil.name = 'Fef'
+    assert_equal "Fef", @emil.name
   end
 end
