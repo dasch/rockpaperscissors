@@ -16,4 +16,9 @@ class RoundTest < ActiveSupport::TestCase
   def test_losers
     assert_same_collection players(:emil, :daniel), rounds(:one).losers
   end
+
+  def test_tie
+    assert !rounds(:one).tie?
+    assert  rounds(:two).tie?
+  end
 end

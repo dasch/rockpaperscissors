@@ -13,3 +13,13 @@ one_daniel:
   player: daniel
   round: one
   gesture: "scissors"
+
+two_emil:
+  player: emil
+  round: two
+  gesture: "paper"
+
+two_niklas:
+  player: niklas
+  round: two
+  gesture: "paper"

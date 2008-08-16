@@ -14,4 +14,8 @@ class Round < ActiveRecord::Base
     winners = participants - losers
     return winners.first if winners.length == 1
   end
+
+  def tie?
+    winner.nil?
+  end
 end
