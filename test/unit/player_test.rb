@@ -13,6 +13,11 @@ class PlayerTest < ActiveSupport::TestCase
     assert_equal "Fef", @emil.name
   end
 
+  def test_must_have_name
+    @emil.name = nil
+    assert !@emil.valid?
+  end
+
   def test_name_must_be_greater_than_1
     @emil.name = "X"
     assert !@emil.valid?
