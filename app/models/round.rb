@@ -18,4 +18,8 @@ class Round < ActiveRecord::Base
   def tie?
     winner.nil?
   end
+
+  def gesture_for(player)
+    participations.find_by_player_id(player).gesture
+  end
 end

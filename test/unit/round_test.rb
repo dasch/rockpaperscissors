@@ -21,4 +21,8 @@ class RoundTest < ActiveSupport::TestCase
     assert !rounds(:one).tie?
     assert  rounds(:two).tie?
   end
+
+  def test_gesture_for
+    assert_equal "scissors", rounds(:one).gesture_for(players(:emil))
+  end
 end
