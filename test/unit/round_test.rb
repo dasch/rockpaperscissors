@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class RoundTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def test_participations
+    assert_equal round_participations(:one_emil, :one_niklas).sort_by(&:id), 
+                 rounds(:one).participations.sort_by(&:id)
+  end
+
+  def test_participants
+    assert_equal players(:emil, :niklas).sort_by(&:id), 
+                 rounds(:one).participants.sort_by(&:id)
   end
 end

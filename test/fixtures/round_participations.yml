@@ -4,7 +4,7 @@ one_emil:
   round: one
   gesture: "scissors"
 
-one_daniel:
-  player: daniel
+one_niklas:
+  player: niklas
   round: one
   gesture: "rock"
