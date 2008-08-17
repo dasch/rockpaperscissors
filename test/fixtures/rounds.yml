@@ -5,3 +5,6 @@ one:
 
 two:
   created_at: <%= Time.now %>
+
+three:
+  created_at: <%= Time.now %>

@@ -23,3 +23,18 @@ two_niklas:
   player: niklas
   round: two
   gesture: "paper"
+
+three_emil:
+  player: emil
+  round: three
+  gesture: rock
+
+three_niklas:
+  player: niklas
+  round: three
+  gesture: paper
+
+three_anders:
+  player: anders
+  round: three
+  gesture: scissors

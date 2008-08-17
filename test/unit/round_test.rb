@@ -20,6 +20,7 @@ class RoundTest < ActiveSupport::TestCase
   def test_tie
     assert !rounds(:one).tie?
     assert  rounds(:two).tie?
+    assert  rounds(:three).tie?
   end
 
   def test_gesture_for
