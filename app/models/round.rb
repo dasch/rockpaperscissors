@@ -2,11 +2,11 @@ class Round < ActiveRecord::Base
   has_many :participations, :class_name => "RoundParticipation"
   has_many :participants, :through => :participations, :source => :player
 
-  DEFEATING_GESTURES = {"rock" => "paper", "paper" => "scissors", "scissors" => "rock"}
+  GESTURES = %w(rock paper scissors)
 
   def losers
     participations.select do |participation|
-      participations.any? {|p| p.gesture == DEFEATING_GESTURES[participation.gesture] }
+      participations.any? {|p| p.gesture == Round.defeating_gesture_for(participation.gesture) }
     end.collect(&:player)
   end
     
@@ -21,5 +21,9 @@ class Round < ActiveRecord::Base
 
   def gesture_for(player)
     participations.find_by_player_id(player).gesture
+  end
+
+  def self.defeating_gesture_for(gesture)
+    GESTURES.at(GESTURES.index(gesture).succ.modulo(3))
   end
 end

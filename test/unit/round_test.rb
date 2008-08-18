@@ -26,4 +26,14 @@ class RoundTest < ActiveSupport::TestCase
   def test_gesture_for
     assert_equal "scissors", rounds(:one).gesture_for(players(:emil))
   end
+
+  def test_gestures
+    assert_equal %w(rock paper scissors), Round::GESTURES
+  end
+
+  def test_defeating_gestures
+    assert_equal "paper",    Round.defeating_gesture_for("rock")
+    assert_equal "scissors", Round.defeating_gesture_for("paper")
+    assert_equal "rock",     Round.defeating_gesture_for("scissors")
+  end
 end
