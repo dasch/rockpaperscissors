@@ -2,7 +2,9 @@ class Round < ActiveRecord::Base
   has_many :participations, :class_name => "RoundParticipation"
   has_many :participants, :through => :participations, :source => :player
 
-  GESTURES = %w(rock paper scissors).freeze.each(&:freeze)
+  ROCK, PAPER, SCISSORS = 0, 1, 2
+
+  GESTURES = [ROCK, PAPER, SCISSORS].freeze
 
   def losers
     participations.select do |participation|

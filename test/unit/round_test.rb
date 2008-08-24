@@ -24,21 +24,20 @@ class RoundTest < ActiveSupport::TestCase
   end
 
   def test_gesture_for
-    assert_equal "scissors", rounds(:one).gesture_for(players(:emil))
+    assert_equal Round::SCISSORS, rounds(:one).gesture_for(players(:emil))
   end
 
   def test_gestures
-    assert_equal %w(rock paper scissors), Round::GESTURES
+    assert_equal [Round::ROCK, Round::PAPER, Round::SCISSORS], Round::GESTURES
   end
 
   def test_gesture_immutability
-    assert_raise(TypeError) { Round::GESTURES[0] = "stone" }
-    assert_raise(TypeError) { Round::GESTURES[0].replace("stone") }
+    assert_raise(TypeError) { Round::GESTURES[0] = 7 }
   end
 
   def test_defeating_gestures
-    assert_equal "paper",    Round.defeating_gesture_for("rock")
-    assert_equal "scissors", Round.defeating_gesture_for("paper")
-    assert_equal "rock",     Round.defeating_gesture_for("scissors")
+    assert_equal Round::PAPER,    Round.defeating_gesture_for(Round::ROCK)
+    assert_equal Round::SCISSORS, Round.defeating_gesture_for(Round::PAPER)
+    assert_equal Round::ROCK,     Round.defeating_gesture_for(Round::SCISSORS)
   end
 end

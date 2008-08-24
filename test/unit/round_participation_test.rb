@@ -10,7 +10,7 @@ class RoundParticipationTest < ActiveSupport::TestCase
   end
 
   def test_gesture
-    assert_equal "scissors", round_participations(:one_emil).gesture
+    assert_equal Round::SCISSORS, round_participations(:one_emil).gesture
   end
 
   def test_must_have_player
@@ -26,7 +26,7 @@ class RoundParticipationTest < ActiveSupport::TestCase
   end
 
   def test_must_have_valid_gesture
-    assert !create_participation(:gesture => "hammer").valid?
+    assert !create_participation(:gesture => 4).valid?
   end
 
   def test_uniqueness

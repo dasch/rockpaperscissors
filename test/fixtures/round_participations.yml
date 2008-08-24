@@ -2,27 +2,27 @@
 one_emil:
   player: emil
   round: one
-  gesture: "scissors"
+  gesture: <%= Round::SCISSORS %>
 
 one_niklas:
   player: niklas
   round: one
-  gesture: "rock"
+  gesture: <%= Round::ROCK %>
 
 one_daniel:
   player: daniel
   round: one
-  gesture: "scissors"
+  gesture: <%= Round::SCISSORS %>
 
 two_emil:
   player: emil
   round: two
-  gesture: "paper"
+  gesture: <%= Round::PAPER %>
 
 two_niklas:
   player: niklas
   round: two
-  gesture: "paper"
+  gesture: <%= Round::PAPER %>
 
 three_emil:
   player: emil
