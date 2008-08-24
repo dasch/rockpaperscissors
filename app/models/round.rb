@@ -10,13 +10,12 @@ class Round < ActiveRecord::Base
     end.collect(&:player)
   end
     
-  def winner
+  def winners
     winners = participants - losers
-    return winners.first if winners.length == 1
   end
 
   def tie?
-    winner.nil?
+    not winners.length == 1
   end
 
   def gesture_for(player)

@@ -16,7 +16,7 @@
       <tr>
         <% for player in players -%>
           <% if round.participants.include? player -%>
-            <td<%= ' class="winner"' if round.winner == player %>><%= round.gesture_for(player) %></td>
+            <td<%= ' class="winner"' if round.winners.include? player %>><%= round.gesture_for(player) %></td>
           <% else -%>
             <td></td>
           <% end -%>

@@ -9,8 +9,8 @@ class RoundTest < ActiveSupport::TestCase
     assert_same_collection players(:emil, :niklas, :daniel), rounds(:one).participants
   end
 
-  def test_winner
-    assert_equal players(:niklas), rounds(:one).winner
+  def test_winners
+    assert_equal [players(:niklas)], rounds(:one).winners
   end
 
   def test_losers
